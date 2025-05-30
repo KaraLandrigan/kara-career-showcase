@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kara Landrigan Career Showcase</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/recharts@2.8.0/umd/Recharts.js"></script>
+    <script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+        const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } = Recharts;
+        const { Award, TrendingUp, Users, Target, Star, Calendar, Zap, Heart, BarChart: BarChartIcon } = lucideReact;
+
+        const KaraCareerShowcase = () => {
+          const [activeTab, setActiveTab] = useState('overview');
+
+          const keyAchievements = [
+            {
+              title: "Discovery Garden 2019",
+              impact: "5.53% supermarket sales growth",
+              highlight: "Supermarket Innovation Award Winner",
+              description: "Led digital-first campaign with animated catalogue experience",
+              icon: React.createElement(Award, { className: "w-6 h-6" }),
+              metrics: ["Recognition: 47% vs 30% norm", "Branding: 96% vs 85% norm", "1.3% market share gain"]
+            },
+            {
+              title: "COVID Emergency Response 2020",
+              impact: "2nd most trusted brand in Australia",
+              highlight: "Emergency Management Team Member",
+              description: "Led critical communications during pandemic",
+              icon: React.createElement(Users, { className: "w-6 h-6" }),
+              metrics: ["Roy Morgan Trust Rating", "Multichannel customer onboarding", "National communication leadership"]
+            },
+            {
+              title: "Christmas 2020",
+              impact: "8.2% YoY sales growth",
+              highlight: "200+ campaign assets delivered",
+              description: "Led cross-functional strategy across 25 channels",
+              icon: React.createElement(TrendingUp, { className: "w-6 h-6" }),
+              metrics: ["1.1 share point gain", "First Google dynamic OLV campaign", "Cross-functional leadership"]
+            },
+            {
+              title: "TFFP Campaign 2021",
+              impact: "$29M incremental sales",
+              highlight: "95% branding strength (top 5%)",
+              description: "Cut-through triple that of competitor campaigns",
+              icon: React.createElement(Target, { className: "w-6 h-6" }),
+              metrics: ["50% YT completion rate", "33% above display benchmark", "Digital experience relaunch"]
+            }
+          ];
+
+          const campaignStats = [
+            { category: 'Major Campaigns', count: 15, color: '#0ea5e9' },
+            { category: 'Seasonal', count: 8, color: '#10b981' },
+            { category: 'Partnerships', count: 6, color: '#f59e0b' },
+            { category: 'Innovation Projects', count: 12, color: '#8b5cf6' }
+          ];
+
+          const salesImpact = [
+            { campaign: 'Discovery Garden', growth: 5.53, year: '2019' },
+            { campaign: 'Christmas 2020', growth: 8.2, year: '2020' },
+            { campaign: 'Christmas 2022', growth: 6.5, year: '2022' },
+            { campaign: 'Berries 2022', growth: 9.5, year: '2022' },
+            { campaign: 'Making Healthier Easier', growth: 20, year: '2022' }
+          ];
+
+          const innovations = [
+            "First animated immersive catalogue experience",
+            "Web chatbot and voice content integration", 
+            "Google dynamic product targeting campaign",
+            "QR testing process automation",
+            "FMU process automation",
+            "Digital experience relaunch leadership"
+          ];
+
+          const partnerships = [
+            { name: "Qantas Frequent Flyer", impact: "Strategic loyalty integration" },
+            { name: "OzHarvest", impact: "$5M+ fundraising goal exceeded" },
+            { name: "Foodbank", impact: "1.8M meals provided to Australians" },
+            { name: "Cricket Australia", impact: "Seasonal engagement campaigns" }
+          ];
+
+          return React.createElement('div', { className: "min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-6" },
+            React.createElement('div', { className: "max-w-7xl mx-auto" },
+              // Header
+              React.createElement('div', { className: "text-center mb-12" },
+                React.createElement('div', { className: "inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6" },
+                  React.createElement('span', { className: "text-3xl font-bold text-white" }, "KL")
+                ),
+                React.createElement('h1', { className: "text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4" },
+                  "Kara Landrigan"
+                ),
+                React.createElement('p', { className: "text-xl text-gray-600 max-w-2xl mx-auto" },
+                  "Marketing Campaign Leader • Innovation Driver • Digital Experience Architect"
+                ),
+                React.createElement('div', { className: "flex justify-center gap-8 mt-6" },
+                  React.createElement('div', { className: "text-center" },
+                    React.createElement('div', { className: "text-3xl font-bold text-blue-600" }, "40+"),
+                    React.createElement('div', { className: "text-sm text-gray-600" }, "Campaigns Led")
+                  ),
+                  React.createElement('div', { className: "text-center" },
+                    React.createElement('div', { className: "text-3xl font-bold text-green-600" }, "$29M+"),
+                    React.createElement('div', { className: "text-sm text-gray-600" }, "Incremental Sales")
+                  ),
+                  React.createElement('div', { className: "text-center" },
+                    React.createElement('div', { className: "text-3xl font-bold text-purple-600" }, "6"),
+                    React.createElement('div', { className: "text-sm text-gray-600" }, "Innovation Firsts")
+                  )
+                )
+              ),
+
+              // Navigation
+              React.createElement('div', { className: "flex justify-center mb-8" },
+                React.createElement('div', { className: "bg-white rounded-lg p-1 shadow-lg" },
+                  ['overview', 'achievements', 'impact', 'innovation'].map((tab) =>
+                    React.createElement('button', {
+                      key: tab,
+                      onClick: () => setActiveTab(tab),
+                      className: `px-6 py-3 rounded-md font-medium transition-all ${
+                        activeTab === tab
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'text-gray-600 hover:text-blue-600'
+                      }`
+                    }, tab.charAt(0).toUpperCase() + tab.slice(1))
+                  )
+                )
+              ),
+
+              // Content based on active tab
+              activeTab === 'overview' && React.createElement('div', { className: "grid grid-cols-1 lg:grid-cols-2 gap-8" },
+                React.createElement('div', { className: "bg-white rounded-xl shadow-lg p-8" },
+                  React.createElement('h3', { className: "text-2xl font-bold mb-6 flex items-center" },
+                    React.createElement(BarChartIcon, { className: "w-6 h-6 mr-3 text-blue-600" }),
+                    "Campaign Portfolio"
+                  ),
+                  React.createElement(ResponsiveContainer, { width: "100%", height: 300 },
+                    React.createElement(PieChart, null,
+                      React.createElement(Pie, {
+                        data: campaignStats,
+                        cx: "50%",
+                        cy: "50%",
+                        outerRadius: 100,
+                        dataKey: "count",
+                        label: ({ name, value }) => `${name}: ${value}`
+                      },
+                        campaignStats.map((entry, index) =>
+                          React.createElement(Cell, { key: `cell-${index}`, fill: entry.color })
+                        )
+                      ),
+                      React.createElement(Tooltip)
+                    )
+                  )
+                ),
+                React.createElement('div', { className: "bg-white rounded-xl shadow-lg p-8" },
+                  React.createElement('h3', { className: "text-2xl font-bold mb-6 flex items-center" },
+                    React.createElement(TrendingUp, { className: "w-6 h-6 mr-3 text-green-600" }),
+                    "Sales Growth Impact"
+                  ),
+                  React.createElement(ResponsiveContainer, { width: "100%", height: 300 },
+                    React.createElement(BarChart, { data: salesImpact },
+                      React.createElement(CartesianGrid, { strokeDasharray: "3 3" }),
+                      React.createElement(XAxis, { dataKey: "campaign", angle: -45, textAnchor: "end", height: 80 }),
+                      React.createElement(YAxis, { label: { value: 'Growth %', angle: -90, position: 'insideLeft' } }),
+                      React.createElement(Tooltip, { formatter: (value) => [`${value}%`, 'Growth'] }),
+                      React.createElement(Bar, { dataKey: "growth", fill: "#10b981", radius: [4, 4, 0, 0] })
+                    )
+                  )
+                )
+              ),
+
+              // Achievement cards for achievements tab
+              activeTab === 'achievements' && React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-6" },
+                keyAchievements.map((achievement, index) =>
+                  React.createElement('div', { key: index, className: "bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow" },
+                    React.createElement('div', { className: "flex items-start justify-between mb-4" },
+                      React.createElement('div', { className: "flex items-center" },
+                        React.createElement('div', { className: "bg-blue-100 p-3 rounded-lg mr-4" },
+                          achievement.icon
+                        ),
+                        React.createElement('div', null,
+                          React.createElement('h3', { className: "text-xl font-bold text-gray-900" }, achievement.title),
+                          React.createElement('p', { className: "text-green-600 font-semibold" }, achievement.impact)
+                        )
+                      ),
+                      React.createElement(Star, { className: "w-6 h-6 text-yellow-500 fill-current" })
+                    ),
+                    React.createElement('p', { className: "text-gray-600 mb-4" }, achievement.description),
+                    React.createElement('div', { className: "space-y-2" },
+                      achievement.metrics.map((metric, idx) =>
+                        React.createElement('div', { key: idx, className: "flex items-center text-sm" },
+                          React.createElement('div', { className: "w-2 h-2 bg-blue-600 rounded-full mr-3" }),
+                          React.createElement('span', { className: "text-gray-700" }, metric)
+                        )
+                      )
+                    ),
+                    React.createElement('div', { className: "mt-4 px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg" },
+                      React.createElement('span', { className: "text-sm font-medium text-blue-700" }, achievement.highlight)
+                    )
+                  )
+                )
+              ),
+
+              // Simple text content for other tabs
+              activeTab === 'impact' && React.createElement('div', { className: "bg-white rounded-xl shadow-lg p-8" },
+                React.createElement('h3', { className: "text-2xl font-bold mb-6 flex items-center" },
+                  React.createElement(Heart, { className: "w-6 h-6 mr-3 text-red-500" }),
+                  "Strategic Partnerships & Social Impact"
+                ),
+                React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" },
+                  partnerships.map((partnership, index) =>
+                    React.createElement('div', { key: index, className: "border-l-4 border-blue-500 pl-6 py-4" },
+                      React.createElement('h4', { className: "text-lg font-semibold text-gray-900" }, partnership.name),
+                      React.createElement('p', { className: "text-gray-600" }, partnership.impact)
+                    )
+                  )
+                ),
+                React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-3 gap-6" },
+                  React.createElement('div', { className: "bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-8 text-white" },
+                    React.createElement('div', { className: "text-3xl font-bold mb-2" }, "1.8M"),
+                    React.createElement('div', { className: "text-green-100" }, "Meals Provided"),
+                    React.createElement('div', { className: "text-sm mt-2 text-green-100" }, "through Foodbank partnership")
+                  ),
+                  React.createElement('div', { className: "bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-8 text-white" },
+                    React.createElement('div', { className: "text-3xl font-bold mb-2" }, "18M"),
+                    React.createElement('div', { className: "text-blue-100" }, "Competition Entries"),
+                    React.createElement('div', { className: "text-sm mt-2 text-blue-100" }, "EDR Harvest campaign")
+                  ),
+                  React.createElement('div', { className: "bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-8 text-white" },
+                    React.createElement('div', { className: "text-3xl font-bold mb-2" }, "483%"),
+                    React.createElement('div', { className: "text-purple-100" }, "Traffic Increase"),
+                    React.createElement('div', { className: "text-sm mt-2 text-purple-100" }, "to healthylife platform")
+                  )
+                )
+              ),
+
+              activeTab === 'innovation' && React.createElement('div', { className: "bg-white rounded-xl shadow-lg p-8" },
+                React.createElement('h3', { className: "text-2xl font-bold mb-6 flex items-center" },
+                  React.createElement(Zap, { className: "w-6 h-6 mr-3 text-yellow-500" }),
+                  "Innovation Leadership"
+                ),
+                React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-2 gap-8" },
+                  React.createElement('div', null,
+                    React.createElement('h4', { className: "text-lg font-semibold mb-4 text-gray-900" }, "Digital Firsts & Innovations"),
+                    React.createElement('div', { className: "space-y-4" },
+                      innovations.map((innovation, index) =>
+                        React.createElement('div', { key: index, className: "flex items-start" },
+                          React.createElement('div', { className: "w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center mr-4 mt-1" },
+                            React.createElement('span', { className: "text-white font-bold text-sm" }, index + 1)
+                          ),
+                          React.createElement('p', { className: "text-gray-700 font-medium" }, innovation)
+                        )
+                      )
+                    )
+                  ),
+                  React.createElement('div', null,
+                    React.createElement('h4', { className: "text-lg font-semibold mb-4 text-gray-900" }, "Cross-Functional Leadership"),
+                    React.createElement('div', { className: "space-y-3" },
+                      React.createElement('div', { className: "bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg" },
+                        React.createElement('h5', { className: "font-semibold text-blue-900" }, "Emergency Management Team"),
+                        React.createElement('p', { className: "text-blue-700 text-sm" }, "COVID-19 response leadership")
+                      ),
+                      React.createElement('div', { className: "bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-lg" },
+                        React.createElement('h5', { className: "font-semibold text-green-900" }, "25 Channel Coordination"),
+                        React.createElement('p', { className: "text-green-700 text-sm" }, "Christmas 2020 campaign delivery")
+                      ),
+                      React.createElement('div', { className: "bg-gradient-to-r from-purple-50 to-violet-50 p-4 rounded-lg" },
+                        React.createElement('h5', { className: "font-semibold text-purple-900" }, "Digital Experience Relaunch"),
+                        React.createElement('p', { className: "text-purple-700 text-sm" }, "TFFP campaign transformation")
+                      )
+                    )
+                  )
+                )
+              ),
+
+              // Footer
+              React.createElement('div', { className: "mt-12 text-center" },
+                React.createElement('div', { className: "bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white" },
+                  React.createElement('h3', { className: "text-2xl font-bold mb-4" }, "Career Highlights Summary"),
+                  React.createElement('div', { className: "grid grid-cols-1 md:grid-cols-4 gap-6" },
+                    React.createElement('div', null,
+                      React.createElement(Calendar, { className: "w-8 h-8 mx-auto mb-2" }),
+                      React.createElement('div', { className: "text-lg font-semibold" }, "6+ Years"),
+                      React.createElement('div', { className: "text-blue-100 text-sm" }, "Campaign Leadership")
+                    ),
+                    React.createElement('div', null,
+                      React.createElement(Award, { className: "w-8 h-8 mx-auto mb-2" }),
+                      React.createElement('div', { className: "text-lg font-semibold" }, "Multiple Awards"),
+                      React.createElement('div', { className: "text-blue-100 text-sm" }, "Industry Recognition")
+                    ),
+                    React.createElement('div', null,
+                      React.createElement(TrendingUp, { className: "w-8 h-8 mx-auto mb-2" }),
+                      React.createElement('div', { className: "text-lg font-semibold" }, "Consistent Growth"),
+                      React.createElement('div', { className: "text-blue-100 text-sm" }, "Sales & Market Share")
+                    ),
+                    React.createElement('div', null,
+                      React.createElement(Zap, { className: "w-8 h-8 mx-auto mb-2" }),
+                      React.createElement('div', { className: "text-lg font-semibold" }, "Innovation Leader"),
+                      React.createElement('div', { className: "text-blue-100 text-sm" }, "Digital-First Campaigns")
+                    )
+                  )
+                )
+              )
+            )
+          );
+        };
+
+        ReactDOM.render(React.createElement(KaraCareerShowcase), document.getElementById('root'));
+    </script>
+</body>
+</html>
